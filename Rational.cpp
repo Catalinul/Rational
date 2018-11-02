@@ -115,3 +115,24 @@ Rational& operator/=(Rational &number1, const int &number2)
     return number1;
 }
 
+Rational operator+(const Rational &number)
+{
+    Rational temp(number.mNumerator, number.mDenominator);
+    return temp;
+}
+
+Rational operator-(const Rational &number)
+{
+    Rational temp(-number.mNumerator, number.mDenominator);
+    return temp;
+}
+
+Rational operator+(const Rational &number1, const Rational &number2)
+{
+    Rational result;
+    result.mNumerator = number1.mNumerator * number2.mDenominator + number2.mNumerator * number1.mDenominator;
+    result.mDenominator = number1.mDenominator * number2.mDenominator;
+    result.simplify();
+    return result;
+}
+
