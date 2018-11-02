@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1541078026 source:e:\coding\poo\rational\main.cpp
+	<iostream>
+	"Rational.h"
+
+1541077821 e:\coding\poo\rational\rational.h
+
+1541077821 source:e:\coding\poo\rational\rational.cpp
+	"Rational.h"
+	<iostream>
+
+1541172923 source:c:\users\catalin\desktop\poo\rational\main.cpp
+	<iostream>
+	"Rational.h"
+
+1541172609 c:\users\catalin\desktop\poo\rational\rational.h
+
+1541172946 source:c:\users\catalin\desktop\poo\rational\rational.cpp
+	"Rational.h"
+	<iostream>
+
