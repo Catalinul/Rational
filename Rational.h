@@ -37,8 +37,19 @@ public:
     friend Rational operator-(const Rational &);
 
     //supraincarcarea operatorilor artimetici binari
-    friend Rational operator+(const Rational&, const Rational&);
-    friend Rational operator+(const Rational&, const Rational&);
+    friend Rational operator+(const Rational &, const Rational &);
+    friend Rational operator+(const int &, const Rational &);
+    friend Rational operator+(const Rational &, const int &);
+    friend Rational operator-(const Rational &, const Rational &);
+    friend Rational operator-(const int &, const Rational &);
+    friend Rational operator-(const Rational &, const int &);
+    friend Rational operator*(const Rational &, const Rational &);
+    friend Rational operator*(const int &, const Rational &);
+    friend Rational operator*(const Rational &, const int &);
+    friend Rational operator/(const Rational &, const Rational &);
+    friend Rational operator/(const int &, const Rational &);
+    friend Rational operator/(const Rational &, const int &);
+    friend Rational operator^(const Rational &, const int &);
 };
 
 #endif // RATIONAL_H_INCLUDED

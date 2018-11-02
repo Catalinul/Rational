@@ -136,3 +136,118 @@ Rational operator+(const Rational &number1, const Rational &number2)
     return result;
 }
 
+Rational operator+(const int &number1, const Rational &number2)
+{
+    Rational result;
+    result.mNumerator = number1 * number2.mDenominator + number2.mNumerator;
+    result.mDenominator = number2.mDenominator;
+    result.simplify();
+    return result;
+}
+
+Rational operator+(const Rational &number1, const int &number2)
+{
+    Rational result;
+    result.mNumerator = number2 * number1.mDenominator + number1.mNumerator;
+    result.mDenominator = number1.mDenominator;
+    result.simplify();
+    return result;
+}
+
+Rational operator-(const Rational &number1, const Rational &number2)
+{
+    Rational result;
+    result.mNumerator = number1.mNumerator * number2.mDenominator - number2.mNumerator * number1.mDenominator;
+    result.mDenominator = number1.mDenominator * number2.mDenominator;
+    result.simplify();
+    return result;
+}
+
+Rational operator-(const int &number1, const Rational &number2)
+{
+    Rational result;
+    result.mNumerator = number1 * number2.mDenominator - number2.mNumerator;
+    result.mDenominator = number2.mDenominator;
+    result.simplify();
+    return result;
+}
+
+Rational operator-(const Rational &number1, const int &number2)
+{
+    Rational result;
+    result.mNumerator = number1.mNumerator - number1.mDenominator * number2;
+    result.mDenominator = number1.mDenominator;
+    result.simplify();
+    return result;
+}
+
+Rational operator*(const Rational &number1, const Rational &number2)
+{
+    Rational result;
+    result.mNumerator = number1.mNumerator * number2.mNumerator;
+    result.mDenominator = number1.mDenominator * number2.mDenominator;
+    result.simplify();
+    return result;
+}
+
+Rational operator*(const int &number1, const Rational &number2)
+{
+    Rational result;
+    result.mNumerator = number1 * number2.mNumerator;
+    result.mDenominator = number2.mDenominator;
+    result.simplify();
+    return result;
+}
+
+Rational operator*(const Rational &number1, const int &number2)
+{
+    Rational result;
+    result.mNumerator = number1.mNumerator * number2;
+    result.mDenominator = number1.mDenominator;
+    result.simplify();
+    return result;
+}
+
+Rational operator/(const Rational &number1, const Rational &number2)
+{
+    Rational result;
+    result.mNumerator = number1.mNumerator * number2.mDenominator;
+    result.mDenominator = number1.mDenominator * number2.mNumerator;
+    result.simplify();
+    return result;
+}
+
+Rational operator/(const int &number1, const Rational &number2)
+{
+    Rational result;
+    result.mNumerator = number2.mDenominator * number1;
+    result.mDenominator = number2.mNumerator;
+    result.simplify();
+    return result;
+}
+
+Rational operator/(const Rational &number1, const int &number2)
+{
+    Rational result;
+    result.mNumerator = number1.mNumerator ;
+    result.mDenominator = number1.mDenominator * number2;
+    result.simplify();
+    return result;
+}
+
+Rational operator^(const Rational &number, const int &pow)
+{
+    Rational result;
+    int valueNumerator = number.mNumerator, valueDenominator = number.mDenominator;
+
+    result.mNumerator = number.mNumerator; result.mDenominator = number.mDenominator;
+
+    for (int i = 0; i < pow - 1; i++)
+    {
+        result.mNumerator *= valueNumerator;
+        result.mDenominator *= valueDenominator;
+    }
+
+    return result;
+
+}
