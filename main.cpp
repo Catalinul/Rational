@@ -1,3 +1,8 @@
+/***************************************************************************************************
+Proiectul 1 - Tema 2
+Author: Pirvu Constantin-Catalin
+***************************************************************************************************/
+
 #include <iostream>
 #include "Rational.h"
 
@@ -5,13 +10,13 @@ using namespace std;
 
 int main()
 {
-    Rational num(1,2),num2(4,3),num3;
+    Rational num(5,2),num2(7,3),num3;
 
     cout<<num.getNumerator()<<"/"<<num.getDenominator()<<'\n';
 
     cout<<num2.getNumerator()<<"/"<<num2.getDenominator()<<'\n';
 
-    cin>>num3;
+    num3 = num + num2;
 
     cout<<num3;
 

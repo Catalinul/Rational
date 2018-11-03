@@ -6,38 +6,34 @@
 
 class Rational
 {
-private:
-
-    int mNumerator, mDenominator;
-    void simplify();
-
 public:
 
-    int getNumerator(){ return mNumerator; }
-    int getDenominator(){ return mDenominator; }
+    //constructori si deconstructori
+    Rational(int num = 0, int denom = 1 );
+    Rational(Rational &);
 
+    //getteri
+    int getNumerator();
+    int getDenominator();
+
+    //setteri
     void setNumerator(int);
     void setDenominator(int);
     void setBoth(Rational);
 
-
-
-    Rational(int num = 0, int denom = 1); // constructor parametrizat cu valori implciite
-    Rational(Rational &); // constructor de copiere
-
     //supraincarcarea operatorilor compusi de atribuire
     friend Rational& operator+=(Rational &, const Rational &);
-    friend Rational& operator+=(Rational &, const int &);
+    friend Rational& operator+=(Rational &, const int);
     friend Rational& operator-=(Rational &, const Rational &);
-    friend Rational& operator-=(Rational &, const int &);
+    friend Rational& operator-=(Rational &, const int);
     friend Rational& operator*=(Rational &, const Rational &);
-    friend Rational& operator*=(Rational &, const int &);
+    friend Rational& operator*=(Rational &, const int);
     friend Rational& operator/=(Rational &, const Rational &);
-    friend Rational& operator/=(Rational &, const int &);
+    friend Rational& operator/=(Rational &, const int);
 
     //supraincarcarea operatorilor artimetici unari
     friend Rational operator+(const Rational &);
-    friend Rational operator-(const Rational &);
+    friend Rational operator-(Rational &);
 
     //supraincarcarea operatorilor artimetici binari
     friend Rational operator+(const Rational &, const Rational &);
@@ -85,6 +81,11 @@ public:
     //supraincarcarea operatorilor de citire si de scriere
     friend std::istream & operator>> (std::istream &, Rational &);
     friend std::ostream & operator<< (std::ostream &, Rational &);
+
+private:
+
+    int mNumerator, mDenominator;
+    void simplify();
 };
 
 #endif // RATIONAL_H_INCLUDED
