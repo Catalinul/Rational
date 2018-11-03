@@ -1,6 +1,9 @@
 #ifndef RATIONAL_H_INCLUDED
 #define RATIONAL_H_INCLUDED
 
+#include <string>
+
+
 class Rational
 {
 private:
@@ -49,7 +52,10 @@ public:
     friend Rational operator/(const Rational &, const Rational &);
     friend Rational operator/(const int &, const Rational &);
     friend Rational operator/(const Rational &, const int &);
-    friend Rational operator^(const Rational &, const int &);
+    friend Rational operator^(const Rational &, const int );
+
+    //metode publice
+    friend std::string toString(const Rational &);
 };
 
 #endif // RATIONAL_H_INCLUDED

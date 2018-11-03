@@ -1,7 +1,9 @@
 #include "Rational.h"
 #include <iostream>
+#include <cstdlib>
+#include <string>
+#include <sstream>
 
-using namespace std;
 
 Rational::Rational(int num, int denom)
 {
@@ -235,19 +237,54 @@ Rational operator/(const Rational &number1, const int &number2)
     return result;
 }
 
-Rational operator^(const Rational &number, const int &pow)
+Rational operator^(const Rational &number, const int pow)
 {
     Rational result;
-    int valueNumerator = number.mNumerator, valueDenominator = number.mDenominator;
 
-    result.mNumerator = number.mNumerator; result.mDenominator = number.mDenominator;
+    result.mNumerator = 1; result.mDenominator = 1;
 
-    for (int i = 0; i < pow - 1; i++)
+    if (pow == 0)
+        return result;
+    else if (pow > 0)
+        for (int i = 0; i < pow ; i++)
+        {
+            result.mNumerator *= number.mNumerator;
+            result.mDenominator *= number.mDenominator;
+        }
+    else
     {
-        result.mNumerator *= valueNumerator;
-        result.mDenominator *= valueDenominator;
+        for (int i = 0; i < abs(pow) ; i++)
+        {
+            result.mNumerator *= number.mNumerator;
+            result.mDenominator *= number.mDenominator;
+        }
+
+        std::swap(result.mNumerator,result.mDenominator);
     }
 
     return result;
+}
+
+std::string toString(const Rational &number)
+{
+    std::string fraction;
+
+    std::stringstream convert;
+
+
+    if (number.mDenominator == 1)
+        convert << number.mNumerator;
+    else if (number.mDenominator == -1)
+        convert << number.mNumerator * (-1);
+    else if (number.mDenominator > 0)
+        convert << number.mNumerator << '/' << number.mDenominator;
+    else if (number.mDenominator < 0)
+        convert << number.mNumerator * (-1) << '/' << abs(number.mDenominator);
+    if (number.mDenominator == 0)
+        convert <<"Numitorul nu poate fi 0.";
+
+    fraction = convert.str();
+
+    return fraction;
 
 }

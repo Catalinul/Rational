@@ -9,13 +9,17 @@
 	"Rational.h"
 	<iostream>
 
-1541186160 source:c:\users\catalin\desktop\poo\rational\main.cpp
+1541258821 source:c:\users\catalin\desktop\poo\rational\main.cpp
 	<iostream>
 	"Rational.h"
 
-1541186110 c:\users\catalin\desktop\poo\rational\rational.h
+1541257739 c:\users\catalin\desktop\poo\rational\rational.h
+	<string>
 
-1541186174 source:c:\users\catalin\desktop\poo\rational\rational.cpp
+1541258770 source:c:\users\catalin\desktop\poo\rational\rational.cpp
 	"Rational.h"
 	<iostream>
+	<cstdlib>
+	<string>
+	<sstream>
 
