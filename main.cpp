@@ -5,13 +5,13 @@ using namespace std;
 
 int main()
 {
-    Rational num(-7,0),num2(3,2),num3;
+    Rational num(1,2),num2(2,1),num3;
 
     cout<<num.getNumerator()<<"/"<<num.getDenominator()<<'\n';
 
     cout<<num2.getNumerator()<<"/"<<num2.getDenominator()<<'\n';
 
-    cout<<toString(num);
+    cout<< (num > 2);
 
     return 0;
 }

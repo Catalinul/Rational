@@ -18,13 +18,13 @@ Rational::Rational(Rational &number)
 }
 
 void Rational::simplify()
-{  //algoritmul lui Euclid
+{
     int x, y, r;
 
     x = mNumerator;
     y = mDenominator;
 
-    while (y)
+    while (y) //algoritmul lui Euclid
     {
         r = x % y;
         x = y;
@@ -281,10 +281,116 @@ std::string toString(const Rational &number)
     else if (number.mDenominator < 0)
         convert << number.mNumerator * (-1) << '/' << abs(number.mDenominator);
     if (number.mDenominator == 0)
-        convert <<"Numitorul nu poate fi 0.";
+        convert <<"The denominator cannot be 0.";
 
     fraction = convert.str();
 
     return fraction;
 
+}
+
+bool operator==(Rational &number1, Rational &number2)
+{
+    number1.simplify(); number2.simplify();
+
+    if (number1.mNumerator == number2.mNumerator && number1.mDenominator == number2.mDenominator)
+        return true;
+    return false;
+
+    /*
+    alta metoda, cu parametrii cosnt si fara apelarea functiei simplify:
+    return number1.mNumerator * number2.mDenominator - number2.mNumerator * number1.mDenominator == 0
+    */
+}
+
+bool operator==(const int number1, Rational &number2)
+{
+    number2.simplify();
+    if (number1 == number2.mNumerator && 1 == number2.mDenominator)
+        return true;
+    return false;
+}
+
+bool operator==(Rational &number1, const int number2)
+{
+    number1.simplify();
+    if (number2 == number1.mNumerator && 1 == number1.mDenominator)
+        return true;
+    return false;
+}
+
+bool operator!=(const Rational &number1, const Rational &number2)
+{
+    //am folost si cealalta metoda, descrisa mai sus la operatorul ==(Rational, Rational)
+    return number1.mNumerator * number2.mDenominator - number2.mNumerator * number1.mDenominator;
+}
+
+bool operator!=(const int number1, const Rational &number2)
+{
+    return number1 * number2.mDenominator - number2.mNumerator;
+}
+
+bool operator!=(const Rational &number1, const int number2)
+{
+    return number1.mNumerator - number2 * number1.mDenominator;
+}
+
+bool operator<(const Rational &number1, const Rational &number2)
+{
+    return number1.mNumerator * number2.mDenominator  < number2.mNumerator * number1.mDenominator;
+}
+
+bool operator<(const int number1, const Rational &number2)
+{
+    return number1 * number2.mDenominator < number2.mNumerator;
+}
+
+bool operator<(const Rational &number1, const int number2)
+{
+    return number1.mNumerator < number2 * number1.mDenominator;
+}
+
+bool operator<=(const Rational &number1, const Rational &number2)
+{
+    return number1.mNumerator * number2.mDenominator  <= number2.mNumerator * number1.mDenominator;
+}
+
+bool operator<=(const int number1, const Rational &number2)
+{
+    return number1 * number2.mDenominator <= number2.mNumerator;
+}
+
+bool operator<=(const Rational &number1, const int number2)
+{
+    return number1.mNumerator <= number2 * number1.mDenominator;
+}
+
+bool operator>(const Rational &number1, const Rational &number2)
+{
+    return number1.mNumerator * number2.mDenominator  > number2.mNumerator * number1.mDenominator;
+}
+
+bool operator>(const int number1, const Rational &number2)
+{
+    return number1 * number2.mDenominator > number2.mNumerator;
+}
+
+bool operator>(const Rational &number1, const int number2)
+{
+    return number1.mNumerator > number2 * number1.mDenominator;
+}
+
+bool operator>=(const Rational &number1, const Rational &number2)
+{
+    return number1.mNumerator * number2.mDenominator  >= number2.mNumerator * number1.mDenominator;
+}
+
+bool operator>=(const int number1, const Rational &number2)
+{
+    return number1 * number2.mDenominator >= number2.mNumerator;
+}
+
+bool operator>=(const Rational &number1, const int number2)
+{
+    return number1.mNumerator >= number2 * number1.mDenominator;
 }

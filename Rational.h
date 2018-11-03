@@ -52,10 +52,31 @@ public:
     friend Rational operator/(const Rational &, const Rational &);
     friend Rational operator/(const int &, const Rational &);
     friend Rational operator/(const Rational &, const int &);
-    friend Rational operator^(const Rational &, const int );
+    friend Rational operator^(const Rational &, const int);
 
     //metode publice
     friend std::string toString(const Rational &);
+
+    //supraincarcarea operatorilor relationali
+    friend bool operator==(Rational &, Rational &);
+    friend bool operator==(const int, Rational &);
+    friend bool operator==(Rational &, const int);
+    friend bool operator!=(const Rational &, const Rational &);
+    friend bool operator!=(const int, const Rational &);
+    friend bool operator!=(const Rational &, const int);
+    friend bool operator<(const Rational &, const Rational &);
+    friend bool operator<(const int, const Rational &);
+    friend bool operator<(const Rational &, const int);
+    friend bool operator<=(const Rational &, const Rational &);
+    friend bool operator<=(const int, const Rational &);
+    friend bool operator<=(const Rational &, const int);
+    friend bool operator>(const Rational &, const Rational &);
+    friend bool operator>(const int, const Rational &);
+    friend bool operator>(const Rational &, const int);
+    friend bool operator>=(const Rational &, const Rational &);
+    friend bool operator>=(const int, const Rational &);
+    friend bool operator>=(const Rational &, const int);
+
 };
 
 #endif // RATIONAL_H_INCLUDED
