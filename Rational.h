@@ -77,6 +77,14 @@ public:
     friend bool operator>=(const int, const Rational &);
     friend bool operator>=(const Rational &, const int);
 
+    //supraincarcarea operatorilor de conversie
+    operator double() const;
+    operator int() const;
+    operator std::string() const;
+
+    //supraincarcarea operatorilor de citire si de scriere
+    friend std::istream & operator>> (std::istream &, Rational &);
+    friend std::ostream & operator<< (std::ostream &, Rational &);
 };
 
 #endif // RATIONAL_H_INCLUDED

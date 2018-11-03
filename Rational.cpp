@@ -1,9 +1,5 @@
 #include "Rational.h"
-#include <iostream>
-#include <cstdlib>
-#include <string>
-#include <sstream>
-
+#include <bits/stdc++.h>
 
 Rational::Rational(int num, int denom)
 {
@@ -393,4 +389,33 @@ bool operator>=(const int number1, const Rational &number2)
 bool operator>=(const Rational &number1, const int number2)
 {
     return number1.mNumerator >= number2 * number1.mDenominator;
+}
+
+Rational::operator double() const
+{
+    return (double) mNumerator / mDenominator;
+}
+
+Rational::operator int() const
+{
+    return (int) mNumerator / mDenominator;
+}
+
+Rational::operator std::string() const
+{
+    return toString(*this);
+}
+
+std::istream & operator>> (std::istream &read, Rational &number)
+{
+    char slash;
+
+    read >> number.mNumerator >> slash >> number.mDenominator;
+    return read;
+}
+
+std::ostream & operator<< (std::ostream &write, Rational &number)
+{
+    write << number.mNumerator << '/' << number.mDenominator;
+    return write;
 }
