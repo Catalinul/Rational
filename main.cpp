@@ -9,11 +9,11 @@ Author: Pirvu Constantin-Catalin
 
 int main()
 {
-    Rational num1(1,2), num2(7,4), num3;
-    srand (time(NULL)); int var = rand() % 5 + 2;
-    bool var2;
-    double var3;
-    std::string fraction;
+    Rational num1, num2, num3;
+    int var = 2; //folosit in majoritatea operatiilor ca numar intreg
+    bool var2; //folosit la operatorii relatioanli
+    double var3; //folosit la operatorul de conversie double
+    std::string fraction; //folosit la operatorul de conversie std::string si la functia toString
 
     std::cout<<"Introduceti doua numare rationale... \n";
     std::cin>>num1>>num2;
