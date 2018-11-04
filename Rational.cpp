@@ -27,7 +27,7 @@ Rational::Rational(int num , int denom)
     simplify();
 
     if (mDenominator == 0)
-        throw("The denominator cannot be 0.");
+        throw std::runtime_error("The denominator cannot be 0.");
 }
 
 Rational::Rational(Rational &number)
@@ -150,7 +150,7 @@ Rational operator+(const Rational &number1, const Rational &number2)
     return result;
 }
 
-Rational operator+(const int &number1, const Rational &number2)
+Rational operator+(const int number1, const Rational &number2)
 {
     Rational result;
     result.mNumerator = number1 * number2.mDenominator + number2.mNumerator;
@@ -159,7 +159,7 @@ Rational operator+(const int &number1, const Rational &number2)
     return result;
 }
 
-Rational operator+(const Rational &number1, const int &number2)
+Rational operator+(const Rational &number1, const int number2)
 {
     Rational result;
     result.mNumerator = number2 * number1.mDenominator + number1.mNumerator;
@@ -177,7 +177,7 @@ Rational operator-(const Rational &number1, const Rational &number2)
     return result;
 }
 
-Rational operator-(const int &number1, const Rational &number2)
+Rational operator-(const int number1, const Rational &number2)
 {
     Rational result;
     result.mNumerator = number1 * number2.mDenominator - number2.mNumerator;
@@ -186,7 +186,7 @@ Rational operator-(const int &number1, const Rational &number2)
     return result;
 }
 
-Rational operator-(const Rational &number1, const int &number2)
+Rational operator-(const Rational &number1, const int number2)
 {
     Rational result;
     result.mNumerator = number1.mNumerator - number1.mDenominator * number2;
@@ -204,7 +204,7 @@ Rational operator*(const Rational &number1, const Rational &number2)
     return result;
 }
 
-Rational operator*(const int &number1, const Rational &number2)
+Rational operator*(const int number1, const Rational &number2)
 {
     Rational result;
     result.mNumerator = number1 * number2.mNumerator;
@@ -213,7 +213,7 @@ Rational operator*(const int &number1, const Rational &number2)
     return result;
 }
 
-Rational operator*(const Rational &number1, const int &number2)
+Rational operator*(const Rational &number1, const int number2)
 {
     Rational result;
     result.mNumerator = number1.mNumerator * number2;
@@ -231,7 +231,7 @@ Rational operator/(const Rational &number1, const Rational &number2)
     return result;
 }
 
-Rational operator/(const int &number1, const Rational &number2)
+Rational operator/(const int number1, const Rational &number2)
 {
     Rational result;
     result.mNumerator = number2.mDenominator * number1;
@@ -240,7 +240,7 @@ Rational operator/(const int &number1, const Rational &number2)
     return result;
 }
 
-Rational operator/(const Rational &number1, const int &number2)
+Rational operator/(const Rational &number1, const int number2)
 {
     Rational result;
     result.mNumerator = number1.mNumerator ;
