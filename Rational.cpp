@@ -432,6 +432,16 @@ std::istream & operator>> (std::istream &read, Rational &number)
 
 std::ostream & operator<< (std::ostream &write, Rational &number)
 {
-    write << number.mNumerator << '/' << number.mDenominator;
+    if (number.mDenominator < 0)
+    {
+        number.mDenominator *= (-1);
+        number.mNumerator *= (-1);
+    }
+
+    if (number.mDenominator == 1)
+        write << number.mNumerator;
+    else
+        write << number.mNumerator << '/' << number.mDenominator;
+
     return write;
 }
